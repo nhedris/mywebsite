@@ -1,13 +1,22 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
+class category(models.Model):
+    name=models.CharField(max_length=255)
+        
+    def __str__(self):
+          return self.name
+
+
+
 class Post(models.Model):
     title= models.CharField(max_length=255)
-    #author=models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
+    author=models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
     content= models.TextField()
     #tags = TaggableManager()
-    #image=models.ImageField(upload_to='blog/')
-    #category=models.ManyToManyField(category)
+    image=models.ImageField(upload_to='blog/')
+    category=models.ManyToManyField(category)
     counted_views = models.IntegerField(default=0)
     status=models.BooleanField(default=False)
     login_require=models.BooleanField(default=False)
@@ -20,3 +29,4 @@ class Post(models.Model):
         
     def __str__(self):
         return self.title
+    
