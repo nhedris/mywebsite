@@ -1,8 +1,10 @@
 from django.urls import path
-from .views import http_test
+from website.views import *
 
 urlpatterns = [
  
     #path('url', 'def_views', 'name') 
-    path('http-test',http_test)
+    path('',index_view),
+    path('about',about_view),
+    path('contact',contact_view),
 ] 
