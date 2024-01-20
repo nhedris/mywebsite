@@ -20,10 +20,13 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     #path('url', 'def_views', 'name') 
+    path('admin/', admin.site.urls),
     path('',include('website.urls')),
     path('blog/',include('blog.urls')),
+    path('captcha/', include('captcha.urls')),
+    
+    
 ] 
  
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
