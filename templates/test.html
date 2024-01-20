@@ -1,4 +1,4 @@
-
+{% load blog_tags%}
 <!DOCTYPE html>
 <html dir="rtl">
     <head>
@@ -6,12 +6,7 @@
         <title> </title>
     </head>
     <body>
-{% for post in posts %}
-<p> {{post}}</p>
-{% endfor %}
- 
-
-    
+{% latesposts %}
   </form>
     </body> 
 </html>
