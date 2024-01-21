@@ -11,7 +11,7 @@ class NameForm(forms.Form):
 
 
 class ContactForm(forms.ModelForm):
-    #captcha = CaptchaField()
+    captcha = CaptchaField()
     class Meta:
         model = Contact
         fields=['name','email','message']
