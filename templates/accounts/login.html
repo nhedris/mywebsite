@@ -30,7 +30,15 @@
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">log in</button>
+       <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center mt-4">
+           <a href="{%url 'accounts:signup'%}" class="link-secondary text-decoration-none">Create new account</a>
+         </div> 
+          <div>
+             <a href="{% url 'accounts:password_reset'%}" class="link-secondary text-decoration-none">  Forgot password</a>  
+          </div>    
+
+ 
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </form>
   </body>

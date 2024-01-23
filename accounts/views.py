@@ -11,7 +11,11 @@ from django.urls import reverse_lazy
 from .forms import *
 from django.core.mail import send_mail
 from django.conf import settings
-
+from django.contrib.auth.views import (PasswordChangeView,
+                                       PasswordResetCompleteView,
+                                       PasswordResetConfirmView,
+                                       PasswordResetDoneView,
+                                       PasswordResetView)
 
 
 # Create your views here.
@@ -62,3 +66,18 @@ def signup_view(request):
         return render (request,'accounts/signup.html',context)
     else:
         return redirect('/')
+    
+class PasswordReset(PasswordResetView):
+    template_name="accounts/password_reset_form.html"
+    success_url=reverse_lazy("accounts:password_reset_done")
+
+class PasswordResetDone(PasswordResetDoneView):
+    template_name="accounts/password_reset_done.html"
+    success_url=reverse_lazy("accounts:password_reset_confirm")
+
+class PasswordResetConfirm(PasswordResetConfirmView):
+    template_name="accounts/password_reset_confirm.html"
+    success_url=reverse_lazy("accounts:password_reset_complete")
+
+class PasswordResetComplete(PasswordResetCompleteView):
+    template_name="accounts/password_reset_complete.html"    

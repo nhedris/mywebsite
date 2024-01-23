@@ -105,7 +105,7 @@
 										<p class="comments col-lg-12 col-md-12 col-6"><a href="#">{% comments_count post.id %} Comments</a> <span class="lnr lnr-bubble"></span></p>						
 									</div>
 								</div>
-								<div class="col-lg-9 col-md-9 ">
+								<div class="col-lg-9 col-md-9 "> 
 									<div class="feature-img">
 										<img class="img-fluid" src="{{post.image.url}}" alt="">
 									</div>
@@ -113,7 +113,7 @@
 									<p class="excert">
 										{{post.content|truncatewords:4}}
 									</p>
-									<a href="blog-single.html" class="primary-btn">View More</a>
+									<a href="{% url 'blog:single' pid=post.id %}" class="primary-btn">View More</a>
 								</div>
 							</div>
 							{% endfor %}
