@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'accounts',
 ]
 
+#CSRF_COOKIE_SECOURE=True
 
 #sites framework
 SITE_ID = 2
