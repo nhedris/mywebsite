@@ -21,7 +21,8 @@ from django.conf import settings
 from django.contrib.sitemaps.views import sitemap
 from website.sitemaps import StaticViewSitemap
 from blog.sitemaps import BlogSitemap
-import debug_toolbar
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
+
 
 sitemaps={
     'static':StaticViewSitemap ,
@@ -43,6 +44,7 @@ urlpatterns = [
     path('',include('website.urls')),
     path('blog/',include('blog.urls')),
     path('accounts/',include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ] 
  
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
