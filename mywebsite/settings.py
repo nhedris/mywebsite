@@ -207,3 +207,12 @@ SUMMERNOTE_CONFIG = {
     },
     'lazy': False,
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'nh.edris@gmail.com' #your email-id
+EMAIL_HOST_PASSWORD = 'R2018n2018' #your password
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
