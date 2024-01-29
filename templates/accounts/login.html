@@ -19,13 +19,13 @@
      
     <form class="form-signin" method="post" action="{%url 'accounts:login'%}">
         {% csrf_token %}
-         <div class="col-10 ml-auto">
+         <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center mt-4">
    {% if messages %}
        {% for message in messages %}
           <div class=class="h3 mb-3 font-weight-normal">
              <div class="col-4 text-center">
                  <div class="alert alert-{{message.tags}}">
-         <h1> {{ message }}</h1>
+         <h2> {{ message }}</h2>
                  </div>
               </div>
            </div>

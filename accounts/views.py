@@ -39,7 +39,7 @@ def login_view(request):
                 messages.add_message(request,messages.SUCCESS,'Login was successful')
                 return redirect('/')
             else:
-                 messages.add_message(request,messages.ERROR,'The desired person was not found')
+                 messages.add_message(request,messages.ERROR,'TheDesiredPersonWasNotFound')
         return render(request, "accounts/login.html")
     else:
           return redirect('/')
