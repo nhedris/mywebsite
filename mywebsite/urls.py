@@ -22,6 +22,7 @@ from django.contrib.sitemaps.views import sitemap
 from website.sitemaps import StaticViewSitemap
 from blog.sitemaps import BlogSitemap
 from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
+import website.views as websiteviews
 
 
 sitemaps={
@@ -39,6 +40,8 @@ urlpatterns = [
     path('robots.txt',include('robots.urls'),),
     path("__debug__/", include("debug_toolbar.urls")),
     path('summernote/', include('django_summernote.urls')),
+    
+
  
     #App
     path('',include('website.urls')),

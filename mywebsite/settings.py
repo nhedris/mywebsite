@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django_summernote',
     
     
+    
     #App
     'website',
     'blog',
@@ -82,6 +83,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    
 
 ]
 
@@ -218,3 +220,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 #EMAIL_USE_SSL = False
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+MAINTENANCE_MODE = True

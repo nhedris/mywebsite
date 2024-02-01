@@ -1,6 +1,7 @@
 from django.urls import path
 from blog.views import *
 from blog.feeds import LatestEntriesFeed
+import website.views as websiteviews
 
 app_name='blog'
 

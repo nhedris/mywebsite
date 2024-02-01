@@ -4,7 +4,17 @@ from website.forms import NameForm,ContactForm,NewsletterForm
 from website.models import Contact
 from django.contrib import messages
 from django.contrib.auth.models import AnonymousUser
+from django.views.generic import TemplateView
+from django.conf import settings
+from django.contrib.sites.shortcuts import get_current_site
 
+
+class SplashView(TemplateView):
+    	template_name = "503.html"
+
+def my_view(request):
+    return render(request,'503.html') 
+   
 
 def index_view(request):
     return render(request,'website/index.html') 
