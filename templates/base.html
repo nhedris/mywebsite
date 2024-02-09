@@ -1,4 +1,6 @@
+{% load compress %}
 {% load static %}
+
 
     <html lang="zxx" class="no-js">
 	<head>
@@ -21,6 +23,7 @@
 			<!--
 			CSS
 			============================================= -->
+			{% compress css %}
 			<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
 			<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
 			<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
@@ -30,6 +33,7 @@
 			<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
 			<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">				
 			<link rel="stylesheet" href="{% static 'css/main.css' %}">
+			{% endcompress %}
 		</head>
 		<body>	
 			<header id="header">
@@ -210,22 +214,24 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					</div>
 				</div>
 			</footer>
-			<!-- End footer Area -->	
-
-			<script src={% static 'js/vendor/jquery-2.2.4.min.js' %}></script>
-			<script src={% static 'js/popper.min.js' %}></script>
-			<script src={% static 'js/vendor/bootstrap.min.js' %}></script>			
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>		
- 			<script src={% static 'js/jquery-ui.js' %}></script>					
-  			<script src={% static 'js/easing.min.js' %}></script>			
-			<script src={% static 'js/hoverIntent.js' %}></script>
-			<script src={% static 'js/superfish.min.js' %}></script>	
-			<script src={% static 'js/jquery.ajaxchimp.min.js' %}></script>
-			<script src={% static 'js/jquery.magnific-popup.min.js' %}></script>						
-			<script src={% static 'js/jquery.nice-select.min.js' %}></script>					
-			<script src={% static 'js/owl.carousel.min.js' %}></script>							
-			<script src={% static 'js/mail-script.js' %}></script>	
-			<script src={% static 'js/main.js' %}></script>	
+			<!-- End footer Area -->
+			 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>	
+            {% compress js %}
+			 <script src={% static 'js/vendor/jquery-2.2.4.min.js' %}></script>
+			 <script src={% static 'js/popper.min.js' %}></script>
+			 <script src={% static 'js/vendor/bootstrap.min.js' %}></script>		
+ 			 <script src={% static 'js/jquery-ui.js' %}></script>				
+  			 <script src={% static 'js/easing.min.js' %}></script>	
+ 			 <script src={% static 'js/hoverIntent.js' %}></script>
+             <script src={% static 'js/superfish.min.js' %}></script>	
+			 <script src={% static 'js/jquery.ajaxchimp.min.js' %}></script>
+			 <script src={% static 'js/jquery.magnific-popup.min.js' %}></script>						
+			 <script src={% static 'js/jquery.nice-select.min.js' %}></script>					
+			 <script src={% static 'js/owl.carousel.min.js' %}></script>							
+			 <script src={% static 'js/mail-script.js' %}></script>	
+			 <script src={% static 'js/main.js' %}></script>
+			 {% endcompress %}	
+            
 		</body>
 	</html>
 

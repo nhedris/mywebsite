@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'taggit',
     'django_summernote',
+    'compressor',
     
     
     
@@ -75,6 +76,9 @@ MULTI_CAPTCHA_ADMIN = {
 
 
 MIDDLEWARE = [
+    'django.middleware.gzip.GZipMiddleware', #This one
+    'htmlmin.middleware.HtmlMinifyMiddleware', #This one
+    'htmlmin.middleware.MarkRequestMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -163,7 +167,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 STATICFILES_DIRS = [
     BASE_DIR / "statics",
 ]
-
+    
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -222,3 +226,36 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 MAINTENANCE_MODE = True
+
+#compress
+
+
+
+
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+
+    # Add this
+    'compressor.finders.CompressorFinder',
+)
+COMPRESS_ENABLED=True
+COMPRESS_HASHING_METHOD='content'
+
+COMPRESS_FILTERS = {
+    'css':[
+        'compressor.filters.css_default.CssAbsoluteFilter',
+        'compressor.filters.cssmin.rCSSMinFilter',
+    ],
+    'js':[
+        'compressor.filters.jsmin.JSMinFilter',
+    ]
+}
+
+COMPRESS_OFFLINE_CONTEXT = {
+    'path_to_files': '/static/js/',
+}
+COMPRESS_STORAGE='compressor.storage.CompressorFileStorage'
+HTML_MINIFY=True
+KEEP_COMMENTS_ON_MINIFYING=True
